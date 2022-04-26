@@ -10,4 +10,10 @@ public abstract class Human {
         this.surname = surname;
         this.age = age;
     }
+
+    @Override
+    public String toString() {
+        return name + " " + surname + " age " + age;
+    }
+
 }

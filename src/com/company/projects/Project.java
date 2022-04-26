@@ -8,9 +8,9 @@ public class Project {
     private String projectName;
     private DaysToRealisation daysToRealisation;
     private Client client;
-    public final LocalDate deadline;
+    private LocalDate deadline;
     private Integer amountPenalty;
-    private Double price;
+    public Double price;
     private Integer daysToPay;
     private DifficultyLevel difficultyLevel;
 
@@ -24,5 +24,9 @@ public class Project {
         this.price = price;
         this.daysToPay = daysToPay;
         this.difficultyLevel = difficultyLevel;
+    }
+    @Override
+    public String toString() {
+        return projectName + " dni do realizacji " + daysToRealisation + " dead line " + deadline + " poziom " + difficultyLevel + " cena " + price ;
     }
 }
