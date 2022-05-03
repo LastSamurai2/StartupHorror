@@ -15,6 +15,8 @@ public class Project {
     private Integer daysToPay;
     private DifficultyLevel difficultyLevel;
     public LocalDate payDate;
+    private boolean deleyNoPynishFlag;
+    private LocalDate endProjectDate;
 
 
     public Project(String projectName, DaysToRealisation daysToRealisation, Client client, LocalDate deadline, Integer amountPenalty, Double price, Integer daysToPay, DifficultyLevel difficultyLevel) {
@@ -26,6 +28,7 @@ public class Project {
         this.price = price;
         this.daysToPay = daysToPay;
         this.difficultyLevel = difficultyLevel;
+        this.deleyNoPynishFlag = false;
     }
     @Override
     public String toString() {
@@ -44,10 +47,30 @@ public class Project {
     public void setPayDateNever() {
             payDate = LocalDate.of(9999,1,1);
     }
+    public void setDeleyPunishFlag(boolean youAreLucky){
+        deleyNoPynishFlag = youAreLucky;
+    }
+    public void setEndProjectDate(LocalDate localPlayerDate){
+        endProjectDate = localPlayerDate;
+    }
     public void payPlayerForEndProject(Player player, LocalDate localPlayerDate) {
-        System.out.println("płatonść " + payDate + " " + localPlayerDate);
+        System.out.println("płatonść " + payDate + " local player date " + localPlayerDate);
+        System.out.println("dedline " + deadline);
+
         if (payDate.equals(localPlayerDate)){
-            player.addCash(price);
+            if (endProjectDate.isAfter(deadline)){
+                System.out.println("Oddane po czasie");
+                if (deleyNoPynishFlag == true){
+                    player.addCash(price);
+                    System.out.println("Masz szczęście uniknąłeś kary");
+                }
+                else {
+                    player.addCash(price-amountPenalty);
+                }
+            }
+            else {
+                player.addCash(price);
+            }
             System.out.println("Dostałeś wypłate za projekt " + projectName);
         }
 

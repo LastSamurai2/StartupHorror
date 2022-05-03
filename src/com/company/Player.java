@@ -54,17 +54,26 @@ public class Player {
             if (deleyInPayWeek <= 0.3){
                 additionalDay+=7;
             }
-            if (noPunishForDeley <=0.2){}
+            if (noPunishForDeley <=0.2){
+                project.setDeleyPunishFlag(true);
+                System.out.println("Masz szczęście uniknąłeś kary");
+            }
         }
         else if (klient.clientType.equals(ClientType.DEMANDING)){
             if (deleyInPayWeek <= 0){
                 additionalDay+=7;
             }
-            if (noPunishForDeley <=0){}
+            if (noPunishForDeley <=0){
+                project.setDeleyPunishFlag(true);
+                System.out.println("Masz szczęście uniknąłeś kary");
+            }
             if (lossContract <= 0.5){}
         }
         else if(klient.clientType.equals(ClientType.MOFO)){
-            if (noPunishForDeley <=0){}
+            if (noPunishForDeley <=0){
+                project.setDeleyPunishFlag(true);
+                System.out.println("Masz szczęście uniknąłeś kary");
+            }
             if (lossContract <= 1){}
 
 
@@ -87,6 +96,7 @@ public class Player {
         else {
             project.setPayDate(additionalDay, currentdate);
         }
+        project.setEndProjectDate(currentdate);
 
     }
 
