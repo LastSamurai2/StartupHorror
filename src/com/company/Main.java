@@ -23,8 +23,17 @@ public class Main {
         player.setMyProjects(project1);
         player.setMyEmployees(programmer1);
         System.out.println(player);
+
+        System.out.println(project1.payDate);
         player.endProject(project1);
         System.out.println(player);
+        System.out.println(project1.payDate);
+
+        //System.out.println(player.getCash());
+        //player.addDays(5); //test wypłaty
+        //System.out.println("dni po doddaniu " + player.getCurrentDate());
+        //project1.payPlayerForEndProject(player,player.getCurrentDate());
+        //System.out.println(player.getCash());
 
     }
 }
