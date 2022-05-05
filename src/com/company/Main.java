@@ -4,8 +4,10 @@ import com.company.humans.*;
 import com.company.projects.DaysToRealisation;
 import com.company.projects.DifficultyLevel;
 import com.company.projects.Project;
+import com.company.Controller;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Main {
 
@@ -35,6 +37,13 @@ public class Main {
         //System.out.println("dni po doddaniu " + player.getCurrentDate());
         project1.payPlayerForEndProject(player,player.getCurrentDate());
         System.out.println(player.getCash());
+
+        Controller controller = new Controller();
+
+        controller.baseMenu(player);
+
+
+
 
     }
 }
